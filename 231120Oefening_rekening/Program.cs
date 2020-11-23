@@ -23,6 +23,11 @@ namespace _231120Oefening_rekening
             input = Convert.ToDouble(Console.ReadLine());
             rekening1.Storten(input);
             Console.WriteLine(rekening1);
+            Console.WriteLine("******************************");
+
+
+
+
         }
     }
 }
