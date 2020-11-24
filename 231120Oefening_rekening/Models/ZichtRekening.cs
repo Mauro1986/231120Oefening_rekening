@@ -6,31 +6,48 @@ using System.Threading.Tasks;
 
 namespace _231120Oefening_rekening.Models
 {
-   public class ZichtRekening : Rekening
+    public class ZichtRekening : Rekening
     {
-        private double maxkrediet = -1000;     
-       
+        private double maxkrediet;
+
         public double MaxKrediet
         {
             get { return maxkrediet; }
 
             set
             {
-                if (value > maxkrediet)
+                if (value < 0)
                 {
-                    Console.WriteLine("Het maximum krediet mag niet meer dan 1000 zijn (-1000)");
+                    maxkrediet = value;
+
                 }
                 else
                 {
-                   
-                    maxkrediet = value;
+                    Console.WriteLine("Waarde is positief, geef een negatieve waarde");
                 }
             }
 
         }
-        public ZichtRekening(string rekeningnummer, double saldo, DateTime creatieDatum) : base(rekeningnummer, saldo, creatieDatum)
+        public ZichtRekening(string rekeningnummer, double saldo, DateTime creatieDatum, double maxkrediet) : base(rekeningnummer, saldo, creatieDatum)
         {
+            MaxKrediet = maxkrediet;
+        }
 
+        public override string ToString()
+        {
+            return $"Rekeningnummer:{Rekeningnummer}  Saldo:{Saldo}  Creatiedatum:{CreatieDatum.ToShortDateString()} MaxKrediet: {maxkrediet}";
+        }
+
+        public new void Storten(double bedrag)
+        {
+            if ((Saldo + bedrag) < MaxKrediet)
+            {
+                Console.WriteLine("Je bent over de limiet");
+            }
+            else
+            {
+                Saldo = Saldo + bedrag;
+            }
         }
     }
 }
