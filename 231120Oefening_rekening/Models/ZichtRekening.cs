@@ -8,6 +8,8 @@ namespace _231120Oefening_rekening.Models
 {
     public class ZichtRekening : Rekening
     {
+    
+
         private double maxkrediet;
 
         public double MaxKrediet
@@ -23,7 +25,7 @@ namespace _231120Oefening_rekening.Models
                 }
                 else
                 {
-                    Console.WriteLine("Waarde is positief, geef een negatieve waarde");
+                    Console.WriteLine("Error: waarde moet negatief zijn");          
                 }
             }
 
@@ -42,7 +44,7 @@ namespace _231120Oefening_rekening.Models
         {
             if ((Saldo + bedrag) < MaxKrediet)
             {
-                Console.WriteLine("Je bent over de limiet");
+                Console.WriteLine("Bewerking niet uitgevoerd, Je bent over de limiet");
             }
             else
             {

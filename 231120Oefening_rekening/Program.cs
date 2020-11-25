@@ -12,8 +12,9 @@ namespace _231120Oefening_rekening
     {
         static void Main(string[] args)
         {
-            double input;
 
+            double input;
+            double kredietInput;
             //Rekening rekening1 = new Rekening("BE3456789123", 1000, new DateTime(1999, 06, 01));
 
             //Console.WriteLine(rekening1);
@@ -36,9 +37,10 @@ namespace _231120Oefening_rekening
             //Console.WriteLine(spaarRekening1);
             //Console.WriteLine("******************************");
 
+            Console.WriteLine("Kies je max krediet(negatief getal):");
+            kredietInput = Convert.ToDouble(Console.ReadLine());
 
-
-            ZichtRekening zichtRekening1 = new ZichtRekening("BE9876543210", 0, new DateTime(2003, 09, 20), -1000);
+            ZichtRekening zichtRekening1 = new ZichtRekening("BE9876543210", 0, new DateTime(2003, 09, 20), kredietInput);
 
             Console.WriteLine($"ZichtRekening1:{zichtRekening1}");
 
